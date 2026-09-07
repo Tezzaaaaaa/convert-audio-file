@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f5f7"><meta name="description" content="A fast, clean audio converter built for Apple devices.">
+<title>Convert Audio — Simple. Private. Fast.</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="#">convert<span>.</span></a><nav><a href="#converter">Convert</a><a href="#formats">Formats</a><a href="#privacy">Privacy</a></nav><button class="appearance" id="appearance" aria-label="Toggle appearance">◐</button></header>
+<main>
+<section class="hero" id="converter">
+<p class="eyebrow">AUDIO CONVERTER</p>
+<h1>Audio.<br><em>Beautifully simple.</em></h1>
+<p class="intro">Convert your music and audio files without the clutter. Choose a file, choose a format, and you're done.</p>
+<label class="drop" id="drop"><input id="file" type="file" accept="audio/*" multiple hidden><span class="upload-icon">↑</span><strong>Choose an audio file</strong><span>or drag and drop it here</span><small>MP3 · WAV · M4A · AAC · FLAC · OGG</small></label>
+</section>
+<section class="queue" id="queue" hidden><div class="section-head"><div><p class="eyebrow">YOUR FILES</p><h2>Ready to convert.</h2></div><button class="link" id="clear">Clear all</button></div><div id="items"></div></section>
+<section class="formats" id="formats"><p class="eyebrow">SUPPORTED FORMATS</p><h2>Everything you need.<br><em>Nothing you don't.</em></h2><div class="format-grid"><article><b>MP3</b><span>Universal playback and compact files.</span></article><article><b>WAV</b><span>Uncompressed audio for maximum fidelity.</span></article><article><b>M4A</b><span>Efficient AAC audio for Apple devices.</span></article><article><b>FLAC</b><span>Lossless audio without the large WAV footprint.</span></article></div></section>
+<section class="privacy" id="privacy"><div><p class="eyebrow">PRIVACY FIRST</p><h2>Your audio<br>stays yours.</h2></div><p>This interface is designed around local-first processing. Your files don't need an account, tracking wall, or unnecessary upload step.</p></section>
+</main><footer><span>convert.</span><span>Built for the web. Designed for Apple.</span></footer>
+<script src="app.js"></script>
+</body></html>
