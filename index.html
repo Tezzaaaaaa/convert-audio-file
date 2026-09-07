@@ -1,23 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f5f5f7"><meta name="description" content="A fast, clean audio converter built for Apple devices.">
-<title>Convert Audio — Simple. Private. Fast.</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f7f8">
+<meta name="description" content="A simple, private audio file converter.">
+<title>Convert Audio</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="nav"><a class="brand" href="#">convert<span>.</span></a><nav><a href="#converter">Convert</a><a href="#formats">Formats</a><a href="#privacy">Privacy</a></nav><button class="appearance" id="appearance" aria-label="Toggle appearance">◐</button></header>
+<header class="nav">
+  <a class="brand" href="#">convert<span>.</span></a>
+  <nav><a href="#converter">Convert</a><a href="#formats">Formats</a><a href="#privacy">Privacy</a></nav>
+  <button class="appearance" id="appearance" aria-label="Toggle appearance">◐</button>
+</header>
 <main>
-<section class="hero" id="converter">
-<p class="eyebrow">AUDIO CONVERTER</p>
-<h1>Audio.<br><em>Beautifully simple.</em></h1>
-<p class="intro">Convert your music and audio files without the clutter. Choose a file, choose a format, and you're done.</p>
-<label class="drop" id="drop"><input id="file" type="file" accept="audio/*" multiple hidden><span class="upload-icon">↑</span><strong>Choose an audio file</strong><span>or drag and drop it here</span><small>MP3 · WAV · M4A · AAC · FLAC · OGG</small></label>
+<section class="converter" id="converter">
+  <div class="title">
+    <p class="eyebrow">AUDIO CONVERTER</p>
+    <h1>Convert to it.</h1>
+    <p>Choose an audio file, select the format you want, and convert.</p>
+  </div>
+
+  <div class="workspace">
+    <label class="source" id="drop">
+      <input id="file" type="file" accept="audio/*,.mp3,.wav,.m4a,.aac,.flac,.ogg" multiple hidden>
+      <span class="plus">+</span>
+      <strong id="sourceTitle">Add audio file</strong>
+      <span id="sourceHint">Click to choose or drag and drop</span>
+    </label>
+
+    <div class="arrow">→</div>
+
+    <div class="output">
+      <label for="format">Output format</label>
+      <select id="format">
+        <option>MP3</option><option>WAV</option><option>M4A</option><option>AAC</option><option>FLAC</option><option>OGG</option>
+      </select>
+    </div>
+
+    <button class="convert" id="convert" disabled>Convert</button>
+  </div>
+
+  <section class="files" id="queue" hidden>
+    <div class="files-head"><span>Your files</span><button class="link" id="clear">Clear</button></div>
+    <div id="items"></div>
+  </section>
 </section>
-<section class="queue" id="queue" hidden><div class="section-head"><div><p class="eyebrow">YOUR FILES</p><h2>Ready to convert.</h2></div><button class="link" id="clear">Clear all</button></div><div id="items"></div></section>
-<section class="formats" id="formats"><p class="eyebrow">SUPPORTED FORMATS</p><h2>Everything you need.<br><em>Nothing you don't.</em></h2><div class="format-grid"><article><b>MP3</b><span>Universal playback and compact files.</span></article><article><b>WAV</b><span>Uncompressed audio for maximum fidelity.</span></article><article><b>M4A</b><span>Efficient AAC audio for Apple devices.</span></article><article><b>FLAC</b><span>Lossless audio without the large WAV footprint.</span></article></div></section>
-<section class="privacy" id="privacy"><div><p class="eyebrow">PRIVACY FIRST</p><h2>Your audio<br>stays yours.</h2></div><p>This interface is designed around local-first processing. Your files don't need an account, tracking wall, or unnecessary upload step.</p></section>
-</main><footer><span>convert.</span><span>Built for the web. Designed for Apple.</span></footer>
+
+<section class="formats" id="formats">
+  <p class="eyebrow">SUPPORTED FORMATS</p>
+  <h2>Audio formats,<br><em>kept simple.</em></h2>
+  <div class="format-grid">
+    <article><b>MP3</b><span>Small, universal, and easy to play anywhere.</span></article>
+    <article><b>WAV</b><span>Uncompressed audio for editing and maximum fidelity.</span></article>
+    <article><b>M4A</b><span>Efficient AAC audio, ideal for Apple devices.</span></article>
+    <article><b>FLAC</b><span>Lossless audio for preserving original quality.</span></article>
+  </div>
+</section>
+
+<section class="privacy" id="privacy">
+  <div><p class="eyebrow">PRIVACY</p><h2>Your files.<br>Not ours.</h2></div>
+  <p>No account. No clutter. The interface is designed for local-first conversion so your audio can stay on your device.</p>
+</section>
+</main>
+<footer><span>convert.</span><span>Simple audio conversion.</span></footer>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
