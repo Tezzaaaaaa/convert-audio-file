@@ -1,0 +1,18 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS temporary files
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor / IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
