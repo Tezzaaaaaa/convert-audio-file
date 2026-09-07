@@ -1,114 +1,122 @@
-Convert Audio File
+# Convert Audio File
 
-Convert audio files locally on macOS using FFmpeg and Apple Shortcuts.
+A macOS Shortcut for converting audio files locally with **FFmpeg**.
 
-No online converter. No file uploads. Your audio is processed directly on your Mac.
+Convert audio without uploading your files to an online conversion service. Processing is performed on your Mac using your local FFmpeg installation.
 
-Features
+## Features
 
-* Local audio conversion
-* Powered by FFmpeg
-* Offline/local processing
-* No third-party conversion website required
-* No audio uploads
-* Runs through Apple Shortcuts
-* Uses your Mac’s processing power
-* Designed for locally stored audio files
+- Local audio conversion
+- FFmpeg-powered processing
+- No online conversion service required
+- No audio upload required
+- Runs through Apple Shortcuts on macOS
+- Uses your Mac's own processing power
+- Designed for locally stored audio files
 
-Requirements
+## Requirements
 
-* macOS
-* Apple Shortcuts
-* FFmpeg
+- A Mac running macOS
+- Apple Shortcuts
+- FFmpeg
 
-Installation
+## Install FFmpeg
 
-1. Install FFmpeg
+The recommended way to install FFmpeg on macOS is with [Homebrew](https://brew.sh/).
 
-The recommended way to install FFmpeg on macOS is with Homebrew.
+Open **Terminal** and run:
 
-Open Terminal and run:
-
+```bash
 brew install ffmpeg
+```
 
-Verify that FFmpeg is installed:
+Verify the installation with:
 
+```bash
 which ffmpeg
+```
 
-You should see the location of your FFmpeg executable.
+If the command returns a path to `ffmpeg`, the executable is installed on your Mac.
 
-2. Install the Shortcut
+## Install the Shortcut
 
-Download Convert Audio File.shortcut from this repository and open it with Apple Shortcuts.
+Download the **Convert Audio File** Shortcut from this repository and open it with Apple Shortcuts.
 
-If macOS asks for permission to access files or folders, allow the requested access.
+> **Repository status:** The Shortcut file itself still needs to be added to this repository. Until it is uploaded, this repository contains the project documentation only.
 
-How to Use
+Once the Shortcut is added, open the `.shortcut` file on your Mac and follow any macOS or Shortcuts permission prompts.
 
-1. Open Convert Audio File.
-2. Select the audio file you want to convert.
-3. Choose the available conversion settings.
-4. FFmpeg processes the audio locally.
-5. The converted file is saved on your Mac.
+## How to Use
 
-Privacy
+1. Make sure FFmpeg is installed.
+2. Open **Convert Audio File** in Apple Shortcuts.
+3. Select the audio file you want to convert.
+4. Choose the available conversion options configured in the Shortcut.
+5. Let FFmpeg process the file locally.
+6. Find the converted audio file at the output location configured by the Shortcut.
 
-All audio processing takes place locally on your Mac using your installed FFmpeg executable.
+## Privacy
 
-Your audio files are not uploaded to an online conversion service.
+Audio processing is performed locally on your Mac using FFmpeg.
 
-No conversion website or account is required.
+The Shortcut does not require an online conversion website or an account, and it does not need to upload your audio files to a third-party conversion service.
 
-FFmpeg
+## FFmpeg
 
-This Shortcut uses FFmpeg, an independent open-source multimedia framework.
+This project uses [FFmpeg](https://ffmpeg.org/), an independent open-source multimedia framework.
 
-FFmpeg is not included with this Shortcut and must be installed separately.
+FFmpeg is **not included with this Shortcut** and must be installed separately.
 
-This repository does not redistribute FFmpeg.
+This project does not redistribute FFmpeg.
 
-Compatibility
+## Compatibility
 
-Convert Audio File is designed for macOS.
+This project is intended for **macOS** and Apple Shortcuts on Mac.
 
 It is not intended for iPhone or iPad.
 
-Supported input and output formats depend on the conversion settings configured in the Shortcut and the capabilities of the installed FFmpeg version.
+The formats that can be converted depend on the FFmpeg installation and the conversion settings implemented by the Shortcut.
 
-Troubleshooting
+## Troubleshooting
 
-FFmpeg cannot be found
+### FFmpeg is not found
 
 Run:
 
+```bash
 which ffmpeg
+```
 
-If FFmpeg is not installed, run:
+If nothing is returned, install FFmpeg with:
 
+```bash
 brew install ffmpeg
+```
 
-The Shortcut cannot access my files
+If FFmpeg is installed but the Shortcut cannot find it, check that the Shortcut's shell command points to the correct FFmpeg executable path on your Mac.
 
-Check the permissions granted to Shortcuts in macOS and allow access to the files or folders required by the Shortcut.
+### The Shortcut cannot access a file
 
-A format does not work
+Check the file-access permissions granted to **Shortcuts** in macOS and allow access to the location containing your audio files.
 
-Format support depends on your installed FFmpeg version and the conversion settings configured in the Shortcut.
+### A particular format does not work
 
-Credits
+Supported formats depend on the installed FFmpeg build and the conversion settings implemented by the Shortcut.
 
-Uses FFmpeg for local audio processing.
+## Credits
 
-FFmpeg is an independent open-source project and is not affiliated with this Shortcut.
+Uses **FFmpeg** for local audio processing.
 
-Version
+FFmpeg is an independent open-source project and is not affiliated with this project.
 
-1.0 — Initial Release
+## Version
 
-Changelog
+**1.0 — Initial Release**
 
-* Initial release
-* Local FFmpeg-based audio conversion
-* macOS Shortcuts integration
-* Offline/local processing
-* No online conversion service required
+### Changelog
+
+- Initial release
+- Local FFmpeg-based audio conversion
+- macOS Shortcuts integration
+- Local/offline processing
+- No online conversion service required
