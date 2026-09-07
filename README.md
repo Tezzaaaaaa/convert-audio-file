@@ -1,122 +1,77 @@
-# Convert Audio File
+# Convert.
 
-A macOS Shortcut for converting audio files locally with **FFmpeg**.
+A private, browser-based universal media converter with an Apple-inspired interface.
 
-Convert audio without uploading your files to an online conversion service. Processing is performed on your Mac using your local FFmpeg installation.
+The project started as a macOS audio conversion Shortcut and has been rebuilt as a general-purpose web converter. It now accepts batches of media files and performs conversion locally in the browser using FFmpeg compiled to WebAssembly.
+
+## What it converts
+
+### Audio
+
+- MP3
+- M4A
+- AAC
+- WAV
+- FLAC
+- OGG
+- OPUS
+
+### Video
+
+- MP4
+- MOV
+- WEBM
+- MKV
+- AVI
+- GIF
+
+### Images
+
+- JPG
+- PNG
+- WEBP
+
+Support ultimately depends on the codecs and formats included in the browser FFmpeg build.
 
 ## Features
 
-- Local audio conversion
-- FFmpeg-powered processing
-- No online conversion service required
-- No audio upload required
-- Runs through Apple Shortcuts on macOS
-- Uses your Mac's own processing power
-- Designed for locally stored audio files
+- Real browser-side conversion
+- Audio, video and image conversion
+- Batch conversion
+- Drag and drop
+- Progress reporting
+- Individual downloads
+- No account
+- No conversion server
+- Files remain in the browser during processing
+- Apple-style responsive interface
+- Dark mode
+- Reduced-motion support
 
-## Requirements
+## How it works
 
-- A Mac running macOS
-- Apple Shortcuts
-- FFmpeg
+The application loads FFmpeg WebAssembly when the first conversion starts. The selected files are written into the browser's local WebAssembly filesystem, converted, read back as Blob data, and exposed as local download links.
 
-## Install FFmpeg
-
-The recommended way to install FFmpeg on macOS is with [Homebrew](https://brew.sh/).
-
-Open **Terminal** and run:
-
-```bash
-brew install ffmpeg
-```
-
-Verify the installation with:
-
-```bash
-which ffmpeg
-```
-
-If the command returns a path to `ffmpeg`, the executable is installed on your Mac.
-
-## Install the Shortcut
-
-Download the **Convert Audio File** Shortcut from this repository and open it with Apple Shortcuts.
-
-> **Repository status:** The Shortcut file itself still needs to be added to this repository. Until it is uploaded, this repository contains the project documentation only.
-
-Once the Shortcut is added, open the `.shortcut` file on your Mac and follow any macOS or Shortcuts permission prompts.
-
-## How to Use
-
-1. Make sure FFmpeg is installed.
-2. Open **Convert Audio File** in Apple Shortcuts.
-3. Select the audio file you want to convert.
-4. Choose the available conversion options configured in the Shortcut.
-5. Let FFmpeg process the file locally.
-6. Find the converted audio file at the output location configured by the Shortcut.
+FFmpeg WebAssembly is designed for browser-side audio and video conversion and keeps the processing on the client rather than requiring a media-processing server.
 
 ## Privacy
 
-Audio processing is performed locally on your Mac using FFmpeg.
+Files selected for conversion are processed by the browser. This project does not implement an upload API or require an account.
 
-The Shortcut does not require an online conversion website or an account, and it does not need to upload your audio files to a third-party conversion service.
+The current web app loads its conversion JavaScript and WebAssembly runtime from jsDelivr. The media files themselves are not sent to a conversion service by the application.
 
-## FFmpeg
+## Development
 
-This project uses [FFmpeg](https://ffmpeg.org/), an independent open-source multimedia framework.
+This version is intentionally dependency-light: the application is static HTML, CSS and JavaScript and can be hosted on GitHub Pages or another static host.
 
-FFmpeg is **not included with this Shortcut** and must be installed separately.
-
-This project does not redistribute FFmpeg.
-
-## Compatibility
-
-This project is intended for **macOS** and Apple Shortcuts on Mac.
-
-It is not intended for iPhone or iPad.
-
-The formats that can be converted depend on the FFmpeg installation and the conversion settings implemented by the Shortcut.
-
-## Troubleshooting
-
-### FFmpeg is not found
-
-Run:
-
-```bash
-which ffmpeg
-```
-
-If nothing is returned, install FFmpeg with:
-
-```bash
-brew install ffmpeg
-```
-
-If FFmpeg is installed but the Shortcut cannot find it, check that the Shortcut's shell command points to the correct FFmpeg executable path on your Mac.
-
-### The Shortcut cannot access a file
-
-Check the file-access permissions granted to **Shortcuts** in macOS and allow access to the location containing your audio files.
-
-### A particular format does not work
-
-Supported formats depend on the installed FFmpeg build and the conversion settings implemented by the Shortcut.
+Open `index.html` through a web server rather than directly from `file://`, because browser module and WebAssembly security rules can block local-file execution.
 
 ## Credits
 
-Uses **FFmpeg** for local audio processing.
+Conversion is powered by [FFmpeg](https://ffmpeg.org/) through [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm).
 
-FFmpeg is an independent open-source project and is not affiliated with this project.
+FFmpeg and ffmpeg.wasm are independent open-source projects. Their respective licenses and third-party codec licenses apply to the components used by the browser build.
 
-## Version
+## Status
 
-**1.0 — Initial Release**
-
-### Changelog
-
-- Initial release
-- Local FFmpeg-based audio conversion
-- macOS Shortcuts integration
-- Local/offline processing
-- No online conversion service required
+This is now the **Convert. Ultimate Converter** foundation: a universal media workflow rather than an audio-only converter. The architecture can be extended later with document, archive and specialist-format handlers without replacing the core interface.
